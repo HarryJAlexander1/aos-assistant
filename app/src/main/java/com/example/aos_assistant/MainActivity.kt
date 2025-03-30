@@ -1,5 +1,6 @@
 package com.example.aos_assistant
 
+import JsonHandler
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,15 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aos_assistant.ui.theme.AosassistantTheme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val gm = GameManager(this)
         enableEdgeToEdge()
         setContent {
             AosassistantTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = gm.units[0].toString(),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
